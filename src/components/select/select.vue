@@ -495,24 +495,24 @@
                 this.filterable && this.selectFirstMatchItem()
             },
             selectFirstMatchItem() {
-                let firstMatch = false;
-                let completeMatch = false;
+                let matchObj = {};
                 this.findChild(child => {
-                    if (completeMatch) {
-                        return;
-                    }
                     let label = child.label === undefined ? child.$el.innerHTML : child.label;
                     if (label === this.query) {
-                        this.completeMatch === true;
-                        this.query = label;
-                        this.model = child.value;
-                    } else if (firstMatch === false && this.query && label.indexOf(this.query) >= 0) {
-                        this.query = label;
-                        this.model = child.value;
-                        firstMatch = true;
+                        matchObj = {label:label, value:child.value}
+                    }
+                    else if (!matchObj.value && this.query && label.indexOf(this.query) >= 0) {
+                        matchObj = {label:label, value:child.value}
                     }
 
                 });
+                if(matchObj.value) {
+                    this.query = matchObj.label;
+                    this.model = matchObj.value;
+                } else {
+                    this.query = ''
+                    this.model = ''
+                }
             },
             handleKeydown (e) {
                 if (this.visible) {
