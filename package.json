@@ -1,6 +1,6 @@
 {
   "name": "wms-iview",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "wms-iview",
   "description": "A high quality  UI components Library with Vue.js",
   "homepage": "http://www.iviewui.com",
@@ -34,7 +34,7 @@
     "type": "git",
     "url": "https://github.com/yuncangGit/wms-iview"
   },
-  "author": "Aresn",
+  "author": "wms-iview",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yuncangGit/wms-iview/issues"
